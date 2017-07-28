@@ -35,9 +35,9 @@ def create(source, destination):
 
     if system == "Windows":
         _create_windows(source, destination)
-
-    if system == "Linux":
+    elif system == "Linux":
         _create_linux(source, destination)
-
-    if system == "Darwin":
+    elif system == "Darwin":
         _create_osx(source, destination)
+    else:
+        raise NotImplementedError("Unsupported platform: \"{0}\"".format(system))
