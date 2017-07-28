@@ -1,7 +1,7 @@
 import platform
 
 
-def create_windows(source, destination):
+def _create_windows(source, destination):
     """Creates hardlink at destination from source in Windows."""
 
     import ctypes
@@ -18,12 +18,12 @@ def create_windows(source, destination):
         raise WinError()
 
 
-def create_linux(source, destination):
+def _create_linux(source, destination):
     """Creates hardlink at destination from source in Linux."""
     raise NotImplementedError("Linux is not support yet.")
 
 
-def create_osx(source, destination):
+def _create_osx(source, destination):
     """Creates hardlink at destination from source in OSX."""
     raise NotImplementedError("OSX is not support yet.")
 
@@ -34,10 +34,10 @@ def create(source, destination):
     system = platform.system()
 
     if system == "Windows":
-        create_windows(source, destination)
+        _create_windows(source, destination)
 
     if system == "Linux":
-        create_linux(source, destination)
+        _create_linux(source, destination)
 
     if system == "Darwin":
-        create_osx(source, destination)
+        _create_osx(source, destination)
