@@ -20,6 +20,8 @@ def _create_windows(source, destination, link_type):
         res = CreateHardLink(destination, source, None)
         if res == 0:
             raise WinError()
+    else:
+        raise NotImplementedError("Link type unrecognized.")
 
 
 def _create_linux(source, destination, link_type):
