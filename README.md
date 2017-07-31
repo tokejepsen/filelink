@@ -12,8 +12,6 @@ To provide a simple module for linking files on disk to different locations.
 This module is as simple as
 
 ```python
-from file_link import hardlink
-
-
-hardlink.create(source, destination)
+import filelink
+filelink.create(src, dst, filelink.HARDLINK)
 ```
