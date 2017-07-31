@@ -40,4 +40,6 @@ def create(source, destination):
     elif system == "Darwin":
         _create_osx(source, destination)
     else:
-        raise NotImplementedError("Unsupported platform: \"{0}\"".format(system))
+        raise NotImplementedError(
+            "Unsupported platform: \"{0}\"".format(system)
+        )
