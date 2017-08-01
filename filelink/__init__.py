@@ -1,1 +1,1 @@
-from link import create, HARDLINK
+from .link import create, HARDLINK
