@@ -1,3 +1,4 @@
+import os
 import platform
 
 
@@ -26,7 +27,11 @@ def _create_windows(source, destination, link_type):
 
 def _create_linux(source, destination, link_type):
     """Creates hardlink at destination from source in Linux."""
-    raise NotImplementedError("Linux is not support yet.")
+
+    if link_type == HARDLINK:
+        os.link(source, destination)
+    else:
+        raise NotImplementedError("Link type unrecognized.")
 
 
 def _create_osx(source, destination, link_type):
