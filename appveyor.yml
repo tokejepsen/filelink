@@ -44,6 +44,10 @@ environment:
 
 build: off
 
+branches:
+  only:
+    - master
+
 install:
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - pip install pytest
