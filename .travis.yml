@@ -10,3 +10,6 @@ python:
 install:
   - pip install pytest
 script: pytest
+branches:
+  only:
+  - master
