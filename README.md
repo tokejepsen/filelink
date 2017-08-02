@@ -1,4 +1,4 @@
-# file_link
+# filelink
 A cross platform and file system module for linking files.
 
 **Currently under development. No features are guaranteed to work.**
