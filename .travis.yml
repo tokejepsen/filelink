@@ -11,3 +11,6 @@ script: pytest
 branches:
   only:
   - master
+os:
+  - linux
+  - osx
