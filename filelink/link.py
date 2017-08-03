@@ -10,7 +10,6 @@ def _create_windows(source, destination, link_type):
 
     if link_type == HARDLINK:
         import ctypes
-        from ctypes import WinError
         from ctypes.wintypes import BOOL
         CreateHardLink = ctypes.windll.kernel32.CreateHardLinkW
         CreateHardLink.argtypes = [
@@ -20,7 +19,7 @@ def _create_windows(source, destination, link_type):
 
         res = CreateHardLink(destination, source, None)
         if res == 0:
-            raise WinError()
+            raise ctypes.WinError()
     else:
         raise NotImplementedError("Link type unrecognized.")
 
@@ -41,7 +40,7 @@ def _create_osx(source, destination, link_type):
     raise NotImplementedError("OSX is not support yet.")
 
 
-def create(source, destination, link_type):
+def create(source, destination, link_type=HARDLINK):
     """Creates a hardlink at destination referring to the same file."""
 
     system = platform.system()
